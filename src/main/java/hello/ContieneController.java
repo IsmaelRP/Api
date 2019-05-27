@@ -1,0 +1,36 @@
+package hello;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping(path="/contains")
+public class ContieneController {
+	
+	@Autowired
+	private ContieneRepository contieneRepository;
+	
+	@PostMapping("/add")
+	public @ResponseBody ContieneId add (ContieneId c) {		
+		
+		Contiene contiene = new Contiene();
+		ContieneId id = new ContieneId();
+		
+		id.setFecha(c.getFecha());
+		id.setIdcalendario(c.getIdcalendario());
+		id.setIdcomida(c.getIdcomida());
+		id.setIdusuariocalendario(c.getIdusuariocalendario());
+		id.setTipocomida(c.getTipocomida());
+		
+		contiene.setContieneid(id);
+		
+		contieneRepository.save(contiene);
+		
+		return c;
+	}
+
+}
