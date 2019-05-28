@@ -14,7 +14,7 @@ public class ContieneController {
 	private ContieneRepository contieneRepository;
 	
 	@PostMapping("/add")
-	public @ResponseBody ContieneId add (ContieneId c) {		
+	public @ResponseBody ContieneDTO add (ContieneDTO c) {		
 		
 		Contiene contiene = new Contiene();
 		ContieneId id = new ContieneId();
