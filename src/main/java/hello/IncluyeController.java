@@ -17,7 +17,7 @@ public class IncluyeController {
 	private IncluyeRepository incluyeRepository;
 	
 	@PostMapping("/add")
-	public @ResponseBody IncluyeDTO add (String idtramo, String idusuario, int idsemana, boolean escategoria,
+	public synchronized @ResponseBody IncluyeDTO add (String idtramo, String idusuario, int idsemana, boolean escategoria,
 			int idcomidaprincipal, int idcomidasecundaria) {
 		Incluye incluye = new Incluye();
 		IncluyeId id = new IncluyeId();
