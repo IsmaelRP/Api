@@ -57,13 +57,23 @@ public class ComidaController {
 	}
 	
 	@PostMapping("/get")
-	public @ResponseBody Comida edit (int idcomida) {
-		Comida c = null;
+	public @ResponseBody Iterable<Comida> edit (int idcomida1, int idcomida2) {
+		ArrayList<Comida> list = new ArrayList<>();
+		Comida c1 = null;
+		Comida c2 = null;
 		
-		if (comidaRepository.findById(idcomida).isPresent()) {
-			c = comidaRepository.findById(idcomida).get();
+		if (comidaRepository.findById(idcomida1).isPresent()) {
+			c1 = comidaRepository.findById(idcomida1).get();
 		}
-		return c;
+		
+		if (comidaRepository.findById(idcomida2).isPresent()) {
+			c2 = comidaRepository.findById(idcomida2).get();
+		}
+		
+		list.add(c1);
+		list.add(c2);
+		
+		return list;
 	}
 
 }
