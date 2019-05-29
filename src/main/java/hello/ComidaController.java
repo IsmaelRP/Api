@@ -55,5 +55,15 @@ public class ComidaController {
 		comidaRepository.save(c);
 		return c;
 	}
+	
+	@PostMapping("/get")
+	public @ResponseBody Comida edit (int idcomida) {
+		Comida c = null;
+		
+		if (comidaRepository.findById(idcomida).isPresent()) {
+			c = comidaRepository.findById(idcomida).get();
+		}
+		return c;
+	}
 
 }
