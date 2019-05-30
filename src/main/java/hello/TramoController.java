@@ -26,6 +26,27 @@ public class TramoController {
 		tramoRepository.save(c);
 		return tramo;
 	}
+	
+	@PostMapping("/delete")
+	public @ResponseBody TramoDTO delete (String idtramo, String idusuario, int idsemana) {
+		Tramo c = null;
+		TramoId id = new TramoId();
+		TramoDTO dto = new TramoDTO();
+		
+		id.setIdtramo(idtramo);
+		id.setIdusuario(idusuario);
+		id.setIdsemana(idsemana);
+		
+		if (tramoRepository.findById(id).isPresent()) {
+			c = tramoRepository.findById(id).get();
+			tramoRepository.delete(c);
+			dto.setIdtramo(idtramo);
+			dto.setIdusuario(idusuario);
+			dto.setIdsemana(idsemana);
+		}
+
+		return dto;
+	}
 
 
 }
