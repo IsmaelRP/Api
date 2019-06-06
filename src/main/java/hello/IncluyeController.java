@@ -17,8 +17,8 @@ public class IncluyeController {
 	private IncluyeRepository incluyeRepository;
 	
 	@PostMapping("/add")
-	public synchronized @ResponseBody IncluyeDTO add (String idtramo, String idusuario, int idsemana, boolean escategoria,
-			int idcomidaprincipal, int idcomidasecundaria) {
+	public synchronized @ResponseBody IncluyeDTO add (String idtramo, String idusuario, int idsemana,
+			int idcomidaprincipal) {
 		Incluye incluye = new Incluye();
 		IncluyeId id = new IncluyeId();
 		Iterable<Incluye> list = new ArrayList<>();
@@ -28,8 +28,6 @@ public class IncluyeController {
 		
 		int sec = 1;
 		
-		id.setIdcomidaprincipal(idcomidaprincipal);
-		id.setIdcomidasecundaria(idcomidasecundaria);
 		id.setIdsemana(idsemana);
 		id.setIdtramo(idtramo);
 		id.setIdusuario(idusuario);
@@ -47,7 +45,6 @@ public class IncluyeController {
 		
 		incluye.setSecuencialidad(sec);
 		
-		incluye.setEscategoria(escategoria);
 		incluye.setIncluyeid(id);
 		
 		incluyeRepository.save(incluye);
@@ -56,9 +53,7 @@ public class IncluyeController {
 		dto.setIdusuario(idusuario);
 		dto.setIdsemana(idsemana);
 		dto.setSecuencialidad(sec);
-		dto.setEscategoria(escategoria);
 		dto.setIdcomidaprincipal(idcomidaprincipal);
-		dto.setIdcomidasecundaria(idcomidasecundaria);
 		
 		return dto;
 	}
@@ -79,7 +74,7 @@ public class IncluyeController {
 		while (iterator.hasNext()) {
 			aux = iterator.next();
 			if (aux.getIncluyeid().getIdusuario().equals(idusuario) && aux.getIncluyeid().getIdsemana() == idsemana) {
-				listDTO.add(new IncluyeDTO(aux.getIncluyeid().getIdtramo(), aux.getIncluyeid().getIdusuario(), aux.getIncluyeid().getIdsemana(), aux.getSecuencialidad(), aux.isEscategoria(), aux.getIncluyeid().getIdcomidaprincipal(), aux.getIncluyeid().getIdcomidasecundaria()));
+				listDTO.add(new IncluyeDTO(aux.getIncluyeid().getIdtramo(), aux.getIncluyeid().getIdusuario(), aux.getIncluyeid().getIdsemana(), aux.getSecuencialidad(), aux.getIncluyeid().getIdcomidaprincipal()));
 			}
 		}
 		

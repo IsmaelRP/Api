@@ -13,12 +13,9 @@ public class Incluye {
 	
 	private int secuencialidad;
 	
-	private boolean escategoria;
-
-	public Incluye(IncluyeId incluyeid, int secuencialidad, boolean escategoria) {
+	public Incluye(IncluyeId incluyeid, int secuencialidad) {
 		this.incluyeid = incluyeid;
 		this.secuencialidad = secuencialidad;
-		this.escategoria = escategoria;
 	}
 	
 	public Incluye() {
@@ -38,14 +35,6 @@ public class Incluye {
 
 	public void setSecuencialidad(int secuencialidad) {
 		this.secuencialidad = secuencialidad;
-	}
-
-	public boolean isEscategoria() {
-		return escategoria;
-	}
-
-	public void setEscategoria(boolean escategoria) {
-		this.escategoria = escategoria;
 	}
 	
 	

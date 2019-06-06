@@ -6,18 +6,14 @@ public class IncluyeDTO {
     private String idusuario;
     private int idsemana;
     private int secuencialidad;
-    private boolean escategoria;
     private int idcomidaprincipal;
-    private int idcomidasecundaria;
 
-    public IncluyeDTO(String idtramo, String idusuario, int idsemana, int secuencialidad, boolean escategoria, int idcomidaprincipal, int idcomidasecundaria) {
+    public IncluyeDTO(String idtramo, String idusuario, int idsemana, int secuencialidad, int idcomidaprincipal) {
         this.idtramo = idtramo;
         this.idusuario = idusuario;
         this.idsemana = idsemana;
         this.secuencialidad = secuencialidad;
-        this.escategoria = escategoria;
         this.idcomidaprincipal = idcomidaprincipal;
-        this.idcomidasecundaria = idcomidasecundaria;
     }
 
     public IncluyeDTO() {
@@ -54,15 +50,7 @@ public class IncluyeDTO {
     public void setSecuencialidad(int secuencialidad) {
         this.secuencialidad = secuencialidad;
     }
-
-    public boolean isEscategoria() {
-        return escategoria;
-    }
-
-    public void setEscategoria(boolean escategoria) {
-        this.escategoria = escategoria;
-    }
-
+    
     public int getIdcomidaprincipal() {
         return idcomidaprincipal;
     }
@@ -71,11 +59,4 @@ public class IncluyeDTO {
         this.idcomidaprincipal = idcomidaprincipal;
     }
 
-    public int getIdcomidasecundaria() {
-        return idcomidasecundaria;
-    }
-
-    public void setIdcomidasecundaria(int idcomidasecundaria) {
-        this.idcomidasecundaria = idcomidasecundaria;
-    }
 }

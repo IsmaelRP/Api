@@ -21,11 +21,6 @@ public class IncluyeId implements Serializable {
 	@NotNull
 	private int idcomidaprincipal;
 	
-	@NotNull
-	private int idcomidasecundaria;
-	
-	
-	
 	public String getIdtramo() {
 		return idtramo;
 	}
@@ -58,13 +53,6 @@ public class IncluyeId implements Serializable {
 		this.idcomidaprincipal = idcomidaprincipal;
 	}
 
-	public int getIdcomidasecundaria() {
-		return idcomidasecundaria;
-	}
-
-	public void setIdcomidasecundaria(int idcomidasecundaria) {
-		this.idcomidasecundaria = idcomidasecundaria;
-	}
 
 	@Override
     public boolean equals(Object o) {
@@ -73,14 +61,14 @@ public class IncluyeId implements Serializable {
 
         IncluyeId that = (IncluyeId) o;
 
-        if (!(idsemana == that.idsemana && idcomidaprincipal == that.idcomidaprincipal && idcomidasecundaria == that.idcomidasecundaria)) return false;
+        if (!(idsemana == that.idsemana && idcomidaprincipal == that.idcomidaprincipal)) return false;
         return idusuario.equals(that.idusuario) && idtramo.equals(that.idtramo);
     }
 
     @Override
     public int hashCode() {
         int result = idsemana;
-        result = 31 * result + idusuario.hashCode() + idtramo.hashCode() + idsemana + idcomidaprincipal + idcomidasecundaria;
+        result = 31 * result + idusuario.hashCode() + idtramo.hashCode() + idsemana + idcomidaprincipal;
         return result;
     }
 
