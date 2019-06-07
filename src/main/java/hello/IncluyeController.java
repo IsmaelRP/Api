@@ -20,17 +20,13 @@ public class IncluyeController {
 	public synchronized @ResponseBody IncluyeDTO add (String idtramo, String idusuario, int idsemana,
 			int idcomidaprincipal) {
 		Incluye incluye = new Incluye();
-		IncluyeId id = new IncluyeId();
+		IncluyeId id = new IncluyeId(idtramo, idusuario, idsemana, idcomidaprincipal);
 		Iterable<Incluye> list = new ArrayList<>();
 		Iterator<Incluye> iterator;
 		Incluye aux;
 		IncluyeDTO dto = new IncluyeDTO();
 		
 		int sec = 1;
-		
-		id.setIdsemana(idsemana);
-		id.setIdtramo(idtramo);
-		id.setIdusuario(idusuario);
 		
 		list = incluyeRepository.findAll();
 		

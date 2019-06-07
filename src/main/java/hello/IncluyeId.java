@@ -21,6 +21,18 @@ public class IncluyeId implements Serializable {
 	@NotNull
 	private int idcomidaprincipal;
 	
+	public IncluyeId(@NotNull String idtramo, @NotNull String idusuario, @NotNull int idsemana,
+			@NotNull int idcomidaprincipal) {
+		this.idtramo = idtramo;
+		this.idusuario = idusuario;
+		this.idsemana = idsemana;
+		this.idcomidaprincipal = idcomidaprincipal;
+	}
+
+	public IncluyeId() {
+		
+	}
+	
 	public String getIdtramo() {
 		return idtramo;
 	}
