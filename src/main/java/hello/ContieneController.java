@@ -23,7 +23,7 @@ public class ContieneController {
 		
 		id.setFecha(c.getFecha());
 		id.setIdcalendario(c.getIdcalendario());
-		id.setIdcomida(c.getIdcomida());
+		id.setIdcomida(c.getIdcomidaprincipal());
 		id.setIdusuariocalendario(c.getIdusuariocalendario());
 		id.setTipocomida(c.getTipocomida());
 		

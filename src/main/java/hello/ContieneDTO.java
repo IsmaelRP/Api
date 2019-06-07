@@ -8,15 +8,15 @@ public class ContieneDTO {
 	
 	private String fecha;
 	
-	private int idcomida;
+	private int idcomidaprincipal;
 	
 	private String tipocomida;
 
-	public ContieneDTO(int idcalendario, String idusuariocalendario, String fecha, int idcomida, String tipocomida) {
+	public ContieneDTO(int idcalendario, String idusuariocalendario, String fecha, int idcomidaprincipal, String tipocomida) {
 		this.idcalendario = idcalendario;
 		this.idusuariocalendario = idusuariocalendario;
 		this.fecha = fecha;
-		this.idcomida = idcomida;
+		this.idcomidaprincipal = idcomidaprincipal;
 		this.tipocomida = tipocomida;
 	}
 	
@@ -47,12 +47,12 @@ public class ContieneDTO {
 		this.fecha = fecha;
 	}
 
-	public int getIdcomida() {
-		return idcomida;
+	public int getIdcomidaprincipal() {
+		return idcomidaprincipal;
 	}
 
-	public void setIdcomida(int idcomida) {
-		this.idcomida = idcomida;
+	public void setIdcomidaprincipal(int idcomidaprincipal) {
+		this.idcomidaprincipal = idcomidaprincipal;
 	}
 
 	public String getTipocomida() {
