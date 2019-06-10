@@ -76,5 +76,25 @@ public class IncluyeController {
 		
 		return listDTO;
 	}
+	
+	@PostMapping("/delete")
+	public @ResponseBody ArrayList<IncluyeDTO> delete (String idusuario, int idsemana) {
+
+		Iterable<Incluye> list = new ArrayList<>();
+		
+	    ArrayList<IncluyeDTO> listDTO = new ArrayList<>(); 
+		
+		list = incluyeRepository.findAll();
+		
+		list.forEach(incluye -> {
+			if (incluye.getIncluyeid().getIdusuario().equals(idusuario) &&
+					incluye.getIncluyeid().getIdsemana() == idsemana) {
+				incluyeRepository.delete(incluye);
+				listDTO.add(new IncluyeDTO(incluye.getIncluyeid().getIdtramo(), idusuario, 
+						idsemana, incluye.getSecuencialidad(), incluye.getIncluyeid().getIdcomidaprincipal()));
+			}
+		});
+		return listDTO;
+	}
 
 }
