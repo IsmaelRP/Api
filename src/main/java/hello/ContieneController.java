@@ -72,5 +72,26 @@ public class ContieneController {
 		});
 		return listDTO;
 	}
+	
+	@PostMapping("/deleteDay")
+	public @ResponseBody ArrayList<ContieneDTO> deleteDay (String idusuario, int idcalendario, String fecha) {
+
+		Iterable<Contiene> list = new ArrayList<>();
+		
+	    ArrayList<ContieneDTO> listDTO = new ArrayList<>(); 
+		
+		list = contieneRepository.findAll();
+		
+		list.forEach(contiene -> {
+			if (contiene.getContieneid().getIdusuariocalendario().equals(idusuario) &&
+					contiene.getContieneid().getIdcalendario() == idcalendario && 
+					contiene.getContieneid().getFecha().equals(fecha)) {
+				contieneRepository.delete(contiene);
+				listDTO.add(new ContieneDTO(idcalendario, idusuario, contiene.getContieneid().getFecha(),
+						contiene.getContieneid().getIdcomida(), contiene.getContieneid().getTipocomida()));
+			}
+		});
+		return listDTO;
+	}
 
 }
