@@ -21,12 +21,16 @@ public class IncluyeId implements Serializable {
 	@NotNull
 	private int idcomidaprincipal;
 	
+	@NotNull
+	private int secuencialidad;
+	
 	public IncluyeId(@NotNull String idtramo, @NotNull String idusuario, @NotNull int idsemana,
-			@NotNull int idcomidaprincipal) {
+			@NotNull int idcomidaprincipal, @NotNull int secuencialidad) {
 		this.idtramo = idtramo;
 		this.idusuario = idusuario;
 		this.idsemana = idsemana;
 		this.idcomidaprincipal = idcomidaprincipal;
+		this.secuencialidad = secuencialidad;
 	}
 
 	public IncluyeId() {
@@ -65,6 +69,13 @@ public class IncluyeId implements Serializable {
 		this.idcomidaprincipal = idcomidaprincipal;
 	}
 
+	public int getSecuencialidad() {
+		return secuencialidad;
+	}
+
+	public void setSecuencialidad(int secuencialidad) {
+		this.secuencialidad = secuencialidad;
+	}
 
 	@Override
     public boolean equals(Object o) {
@@ -74,13 +85,13 @@ public class IncluyeId implements Serializable {
         IncluyeId that = (IncluyeId) o;
 
         if (!(idsemana == that.idsemana && idcomidaprincipal == that.idcomidaprincipal)) return false;
-        return idusuario.equals(that.idusuario) && idtramo.equals(that.idtramo);
+        return idusuario.equals(that.idusuario) && idtramo.equals(that.idtramo) && secuencialidad == that.secuencialidad;
     }
 
     @Override
     public int hashCode() {
         int result = idsemana;
-        result = 31 * result + idusuario.hashCode() + idtramo.hashCode() + idsemana + idcomidaprincipal;
+        result = 31 * result + idusuario.hashCode() + idtramo.hashCode() + idsemana + idcomidaprincipal + secuencialidad;
         return result;
     }
 

@@ -10,12 +10,9 @@ public class Incluye {
 
 	@EmbeddedId
 	private IncluyeId incluyeid;
-	
-	private int secuencialidad;
-	
-	public Incluye(IncluyeId incluyeid, int secuencialidad) {
+		
+	public Incluye(IncluyeId incluyeid) {
 		this.incluyeid = incluyeid;
-		this.secuencialidad = secuencialidad;
 	}
 	
 	public Incluye() {
@@ -28,14 +25,5 @@ public class Incluye {
 	public void setIncluyeid(IncluyeId incluyeid) {
 		this.incluyeid = incluyeid;
 	}
-
-	public int getSecuencialidad() {
-		return secuencialidad;
-	}
-
-	public void setSecuencialidad(int secuencialidad) {
-		this.secuencialidad = secuencialidad;
-	}
-	
 	
 }
